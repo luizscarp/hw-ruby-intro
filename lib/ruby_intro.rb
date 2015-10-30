@@ -3,29 +3,50 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  result = 0
+  arr.each do |x|
+    result += x
+  end
+  result
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  array = arr.sort.reverse
+  result = 0
+  count = 0
+  array.each do |x|
+    result += x if count < 2
+    count += 1
+  end
+  result
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  unless arr.length > 1
+    return false
+  else
+    for i in 0...arr.length
+      for j in 0...arr.length
+        next if j<=i
+        return true if arr[i]+arr[j]==n
+      end
+    end
+  end
+  false
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  !(/^[A-Z]/i =~ s).nil? && (/^[AEIOU]/i =~ s).nil?
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  !(/^[01]*00$/ =~ s).nil? || s == "0"
 end
 
 # Part 3
